@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <Rkt_CategoryBreadcrumbs>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Page/>
+            </depends>
+        </Rkt_CategoryBreadcrumbs>
+    </modules>
+</config>

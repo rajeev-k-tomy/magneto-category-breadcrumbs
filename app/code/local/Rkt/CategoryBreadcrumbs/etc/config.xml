@@ -1,0 +1,28 @@
+<config> 
+    <modules>
+	    <Rkt_CategoryBreadcrumbs>
+	        <version>1.0.0</version>
+	    </Rkt_CategoryBreadcrumbs>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <rkt_categoryBreadcrumbs>
+                    <file>rkt_categorybreadcrumbs.xml</file>
+                </rkt_categoryBreadcrumbs>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <rkt_categoryBreadcrumbs>
+                <class>Rkt_CategoryBreadcrumbs_Block</class>
+            </rkt_categoryBreadcrumbs>
+        </blocks>
+        <helpers>
+            <rkt_categoryBreadcrumbs>
+                <class>Rkt_CategoryBreadcrumbs_Helper</class>
+            </rkt_categoryBreadcrumbs>
+        </helpers>
+    </global>
+</config>
