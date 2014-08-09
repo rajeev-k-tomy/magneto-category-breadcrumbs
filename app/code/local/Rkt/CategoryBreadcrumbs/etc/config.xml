@@ -7,22 +7,22 @@
     <frontend>
         <layout>
             <updates>
-                <rkt_categoryBreadcrumbs>
+                <rkt_categorybreadcrumbs>
                     <file>rkt_categorybreadcrumbs.xml</file>
-                </rkt_categoryBreadcrumbs>
+                </rkt_categorybreadcrumbs>
             </updates>
         </layout>
     </frontend>
     <global>
         <blocks>
-            <rkt_categoryBreadcrumbs>
+            <rkt_categorybreadcrumbs>
                 <class>Rkt_CategoryBreadcrumbs_Block</class>
-            </rkt_categoryBreadcrumbs>
+            </rkt_categorybreadcrumbs>
         </blocks>
         <helpers>
-            <rkt_categoryBreadcrumbs>
+            <rkt_categorybreadcrumbs>
                 <class>Rkt_CategoryBreadcrumbs_Helper</class>
-            </rkt_categoryBreadcrumbs>
+            </rkt_categorybreadcrumbs>
         </helpers>
     </global>
 </config>
