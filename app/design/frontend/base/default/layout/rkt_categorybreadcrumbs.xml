@@ -1,16 +1,18 @@
 <layout>
-	<!-- removes default breadcrumbs -->
 	<default>
+	    <!-- removes default breadcrumbs -->
 		<reference name="content">
 			<remove name="breadcrumbs" />
 		</reference>
 	</default>
 	<catalog_category_default>
+	     <!-- make sure custom breadcrumbs block will appear in all non-anchor categories  -->
 		<reference name="category.products">
 			<block type="rkt_categoryBreadcrumbs/page_html_breadcrumbs" name="category.breadcrumbs" as="category_breadcrumbs"/>
 		</reference>
 	</catalog_category_default>
 	<catalog_category_layered>
+		<!-- make sure custom breadcrumbs block will appear in all anchor categories  -->
 		<reference name="category.products">
 			<block type="rkt_categoryBreadcrumbs/page_html_breadcrumbs" name="category.breadcrumbs" as="category_breadcrumbs"/>
 		</reference>
