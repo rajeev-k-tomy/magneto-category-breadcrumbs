@@ -3,9 +3,12 @@
 /**
  * Html page block
  *
- * @category   Mage
- * @package    Mage_Page
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @inspired from : Default breadcrumbs block | Mage_Page_Block_Page_Html_Breadcrumbs
+ *                  Catalog breadcrumbs block | Mage_Catalog_Block_Breadcrumbs
+ * 
+ * @category   Blocks
+ * @package    Rkt_CategoryBreadcrumbs
+ * @author     Programmer_rkt
  */
 class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Block_Template
 {
@@ -32,8 +35,12 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
      * @var null|array
      */
     protected $_cacheKeyInfo = null;
-
-
+    
+     /**
+     * Use to hold titile for category breadcrumbs
+     *
+     * @var null|array
+     */
     protected $_title = null;
 
     public function __construct()
@@ -41,6 +48,7 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
         parent::__construct();
         $this->setTemplate('page/html/breadcrumbs.phtml');
 
+        //set breadcrumbs with appropriate values
         $this->addCrumb('home', array(
                 'label'=>Mage::helper('catalog')->__('Home'),
                 'title'=>Mage::helper('catalog')->__('Go to Home Page'),
@@ -57,8 +65,15 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
 
             
     }
-
+    
+     /**
+     * Use to prepare layouts for the page
+     *
+     * @return : Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs
+     */
     protected function _prepareLayout(){
+        
+        //set title of page according to breadcrumbs
         if ($headBlock = $this->getLayout()->getBlock('head')) {
                 $headBlock->setTitle(join($this->getTitleSeparator(), array_reverse($this->_title)));
             }
@@ -66,6 +81,11 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
         return parent::_prepareLayout();
     }
 
+    /**
+     * Use to set breadcrumbs blocks with necessary values
+     *
+     * @return : Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs
+     */
     public function addCrumb($crumbName, $crumbInfo, $after = false)
     {
         $this->_prepareArray($crumbInfo, array('label', 'title', 'link', 'first', 'last', 'readonly'));
@@ -92,7 +112,11 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
         return $this->_cacheKeyInfo;
     }
 
-
+    /**
+     * convert this block to html
+     *
+     * @return Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs
+     */
     protected function _toHtml()
     {
 
@@ -106,7 +130,13 @@ class Rkt_CategoryBreadcrumbs_Block_Page_Html_Breadcrumbs extends Mage_Core_Bloc
         $this->assign('crumbs', $this->_crumbs);
         return parent::_toHtml();
     }
-
+    
+    /**
+     * Retrieve HTML title value separator (with space)
+     *
+     * @param mixed $store
+     * @return string
+     */
      public function getTitleSeparator($store = null)
     {
         $separator = (string)Mage::getStoreConfig('catalog/seo/title_separator', $store);
