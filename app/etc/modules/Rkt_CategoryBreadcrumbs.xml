@@ -3,7 +3,7 @@
         <Rkt_CategoryBreadcrumbs>
             <active>true</active>
             <codePool>local</codePool>
-            <depends>
+            <depends>   <!--makes sure extension loads after mage_page core module loaded -->
                 <Mage_Page/>
             </depends>
         </Rkt_CategoryBreadcrumbs>
